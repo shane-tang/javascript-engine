@@ -1,5 +1,5 @@
-var canvasUtils = require('./canvas.js');
-var container = document.getElementById('container');
+const canvasUtils = require('./canvas.js');
+const container = document.getElementById('container');
 
 function Game(width, height) {
     this.viewport = canvasUtils.generateCanvas(width, height);

@@ -2,7 +2,7 @@
   "name": "javascript-engine",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +19,10 @@
   "homepage": "https://github.com/shane-tang/javascript-engine#readme",
   "dependencies": {
     "ejs": "^3.0.2",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "webpack": "^4.42.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.11"
   }
 }
