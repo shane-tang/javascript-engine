@@ -1,12 +1,15 @@
 const canvasUtils = require('./canvas.js');
 const container = document.getElementById('container');
 
-function Game(width, height) {
+const width = 1920;
+const height = 1080;
+
+var game = function game() {
     this.viewport = canvasUtils.generateCanvas(width, height);
     this.context = viewport.getContext('2d');
 
-    this.viewport.width = 800;
-    this.viewport.height = 600;
+    this.viewport.width = width;
+    this.viewport.height = height;
 
     container.insertBefore(this.viewport, container.firstChild);
 
@@ -16,6 +19,6 @@ function Game(width, height) {
     return this;
 }
 
-window.game = new Game(width, height);
+window.game = game();
 
-exports = game;
+module.exports = game;
