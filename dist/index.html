@@ -21,9 +21,10 @@
                 gameIframe.height = gameIframe.contentWindow.gameHeight;
             }
             
-            gameIframe.style.transform = 'scale(0.25, 0.25)';
+            let scaleFactor = 1 / window.devicePixelRatio
+            gameIframe.style.transform = 'scale(' +  scaleFactor + ', ' + scaleFactor + ')';
 
-            $('#gameContainer').append(gameIframe);
+            $('body').append(gameIframe);
         </script>
     </body>
 </html>
