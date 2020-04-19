@@ -2,3 +2,7 @@ body {
     margin: 0;
     width: fit-content;
 }
+
+iframe {
+    transform-origin: top left;
+}

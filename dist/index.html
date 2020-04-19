@@ -17,9 +17,11 @@
             gameIframe.frameBorder = '0';
             
             gameIframe.onload = function() {
-                gameIframe.width = gameIframe.contentWindow.gameWidth / window.devicePixelRatio;
-                gameIframe.height = gameIframe.contentWindow.gameHeight / window.devicePixelRatio;
+                gameIframe.width = gameIframe.contentWindow.gameWidth;
+                gameIframe.height = gameIframe.contentWindow.gameHeight;
             }
+            
+            gameIframe.style.transform = 'scale(0.25, 0.25)';
 
             $('#gameContainer').append(gameIframe);
         </script>

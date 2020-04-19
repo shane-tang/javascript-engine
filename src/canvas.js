@@ -9,9 +9,8 @@ module.exports = {
         canvas.style.height = gameHeight;
 
         var context = canvas.getContext('2d');
-        context.beginPath();
-        context.rect(0, 0, 1080, 1920);
-        context.stroke();
+        context.lineWidth = 10;
+        context.strokeRect(0, 0, 1080, 1920);
 
         return canvas
     }
