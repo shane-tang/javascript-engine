@@ -14,14 +14,33 @@ module.exports = {
 
         var gameRatio = gameWidth / gameHeight;
 
+        canvas.width = gameWidth;
+        canvas.height = gameHeight;
 
 
-        canvas.width = Math.round(gameWidth * ratio);
-        canvas.height = Math.round(gameHeight * ratio);
-        canvas.style.width = gameWidth + 'px';
-        canvas.style.height = gameHeight + 'px';
+        // wide to narrow
+        if (windowRatio > gameRatio) {
+            // scale via width
+            var scaleFactor = gameRatio / windowRatio;
+            canvas.style.width = windowWidth * scaleFactor + 'px';
+            canvas.style.height = windowHeight + 'px';
+        }
+        else {
+        // if (windowRatio < gameRatio) {
+            var scaleFactor = windowRatio / gameRatio;
+            canvas.style.width = windowWidth + 'px';
+            canvas.style.height = windowHeight * scaleFactor + 'px';
+        }
 
-        context.setTransform(ratio, 0, 0, ratio, 0, 0)
+
+        // canvas.width = Math.round(gameWidth * ratio);
+        // canvas.height = Math.round(gameHeight * ratio);
+        // canvas.style.width = windowWidth + 'px';
+        // canvas.style.height = windowHeight + 'px';
+
+        // context.scale(scaleFactor, scaleFactor);
+
+        // context.setTransform(ratio, 0, 0, ratio, 0, 0)
         canvas.style.border = '2px solid blue';
 
         return canvas
