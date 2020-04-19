@@ -9,22 +9,6 @@
 
     <body>
         <div id="gameContainer"></div>
-        <script>
-            var gameIframe = document.createElement('iframe');
-            gameIframe.id = "gameIframe";
-            gameIframe.src = "game.html";
-            gameIframe.scrolling = 'no';
-            gameIframe.frameBorder = '0';
-            
-            gameIframe.onload = function() {
-                gameIframe.width = gameIframe.contentWindow.gameWidth;
-                gameIframe.height = gameIframe.contentWindow.gameHeight;
-            }
-            
-            let scaleFactor = 1 / window.devicePixelRatio
-            gameIframe.style.transform = 'scale(' +  scaleFactor + ', ' + scaleFactor + ')';
-
-            $('body').append(gameIframe);
-        </script>
+        <script src="gameIframe.js"></script>
     </body>
 </html>
