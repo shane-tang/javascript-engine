@@ -18,7 +18,10 @@ gameIframe.onload = function() {
     let deviceDensityScale = window.devicePixelRatio || 1;
 
     if (windowRatio > gameRatio) {
-        let scaleFactor = (1 / deviceDensityScale) * gameRatio;
+        let scaleFactor = (1 / deviceDensityScale) * (window.innerHeight / gameHeight);
+        gameIframe.style.transform = 'scale(' + scaleFactor + ', ' + scaleFactor + ')';
+    } else {
+        let scaleFactor = (1 / deviceDensityScale) * (window.innerWidth / gameWidth);
         gameIframe.style.transform = 'scale(' + scaleFactor + ', ' + scaleFactor + ')';
     }
 
