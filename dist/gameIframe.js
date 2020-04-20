@@ -15,7 +15,7 @@ gameIframe.onload = function() {
     var windowRatio = window.innerWidth / window.innerHeight;
     var gameRatio = gameWidth / gameHeight;
 
-    let deviceDensityScale = window.devicePixelRatio || 1;
+    let deviceDensityScale = 1; //window.devicePixelRatio || 1;
 
     if (windowRatio > gameRatio) {
         let scaleFactor = (1 / deviceDensityScale) * (window.innerHeight / gameHeight);
