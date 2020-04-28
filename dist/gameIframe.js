@@ -15,18 +15,13 @@ gameIframe.onload = function() {
     var windowRatio = window.innerWidth / window.innerHeight;
     var gameRatio = gameWidth / gameHeight;
 
-    let deviceDensityScale = 1; //window.devicePixelRatio || 1;
-
     if (windowRatio > gameRatio) {
-        let scaleFactor = (1 / deviceDensityScale) * (window.innerHeight / gameHeight);
-        gameIframe.style.transform = 'scale(' + scaleFactor + ', ' + scaleFactor + ')';
+        var scaleFactor = window.innerHeight / gameHeight;
     } else {
-        let scaleFactor = (1 / deviceDensityScale) * (window.innerWidth / gameWidth);
-        gameIframe.style.transform = 'scale(' + scaleFactor + ', ' + scaleFactor + ')';
+        var scaleFactor = window.innerWidth / gameWidth;
     }
-
-
+    gameIframe.style.transform = 'scale(' + scaleFactor + ', ' + scaleFactor + ')';
 
 }
 
-$('body').append(gameIframe);
+$('#gameContainer').append(gameIframe);

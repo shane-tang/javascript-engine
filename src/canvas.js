@@ -10,7 +10,7 @@ module.exports = {
 
         var context = canvas.getContext('2d');
         context.lineWidth = 10;
-        context.strokeRect(0, 0, 1080, 1920);
+        context.strokeRect(0, 0, gameWidth, gameHeight);
 
         return canvas
     }
