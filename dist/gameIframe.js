@@ -22,6 +22,8 @@ gameIframe.onload = function() {
     }
     gameIframe.style.transform = 'scale(' + scaleFactor + ', ' + scaleFactor + ')';
 
+    $('#gameContainer').css("height", gameHeight * scaleFactor + "px");
+
 }
 
 $('#gameContainer').append(gameIframe);

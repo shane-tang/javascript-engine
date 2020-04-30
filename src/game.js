@@ -14,7 +14,7 @@ var game = function game() {
     drawing.onload = () => {
         drawing.width = drawing.width;
         drawing.height = drawing.height;
-        // context.drawImage(drawing,0,0);
+        context.drawImage(drawing,0,0);
     }
     
     this.context.font = '32px Arial';
