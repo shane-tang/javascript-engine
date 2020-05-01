@@ -33,6 +33,7 @@ class ImageEntity extends Entity {
         this.drawing.src = filepath;
         this.drawing.onload = () => {
             this.loaded = true;
+            this.game.entityLoaded();
             // canvasUtils.drawImage(drawing, this.xPos, this.yPos);
         }
     }

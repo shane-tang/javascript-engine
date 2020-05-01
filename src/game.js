@@ -7,17 +7,10 @@ class Game {
         this.context = this.canvas.getContext('2d');
 
         this.entities = new Array(); // array of Entity objects
+        this.loadedEntities = 0;
         
         // TODO: move DOM drawing to outside of game constructor
         $('body').append(this.canvas);
-
-        // var drawing = new Image();
-        // drawing.src = "img.jpg";
-        // drawing.onload = () => {
-        //     drawing.width = drawing.width;
-        //     drawing.height = drawing.height;
-        //     this.context.drawImage(drawing, 0, 0);
-        // };
 
         // this.context.font = '32px Arial';
         // this.context.fillText(window.devicePixelRatio, 5, 500);
@@ -28,13 +21,6 @@ class Game {
         })
 
         this.createEntity(test);
-
-        setTimeout(() => {
-            canvasUtils.drawImage(test.drawing, test.xPos, test.yPos);
-        }, 2000);
-
-
-
     }
 
     /**
@@ -43,6 +29,20 @@ class Game {
      */
     createEntity(entity) {
         this.entities.push(entity);
+    }
+
+    entityLoaded() {
+        this.loadedEntities++;
+
+        if (this.loadedEntities >= this.entities.length) {
+            this.finishedLoading();
+        }
+    }
+
+    finishedLoading() {
+        this.entities.forEach((entity) => {
+            canvasUtils.drawImage(entity.drawing, entity.xPos, entity.yPos);
+        });
     }
 }
 
