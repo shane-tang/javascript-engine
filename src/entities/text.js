@@ -6,7 +6,6 @@ class TextEntity extends Entity {
      * TODO: i think this can be better
      * @param {String} text 
      * @param {String} font
-     * @param {Game} game 
      * @param {Number} xPos 
      * @param {Number} yPos 
      * @param {Boolean} visible 

@@ -3,6 +3,9 @@ const logic = require('./logic');
 
 class Game {
     constructor(width, height, showFps) {
+        this.width = width;
+        this.height = height;
+
         this.canvas = canvasUtils.generateCanvas(width, height);
         this.context = this.canvas.getContext('2d');
 
