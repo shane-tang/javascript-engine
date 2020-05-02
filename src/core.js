@@ -1,9 +1,8 @@
-const ImageEntity = require('./entities/image');
-const TextEntity = require('./entities/text');
 const canvasUtils = require('./canvas');
+const logic = require('./logic');
 
 class Game {
-    constructor(width, height, targetFps, showFps) {
+    constructor(width, height, showFps) {
         this.canvas = canvasUtils.generateCanvas(width, height);
         this.context = this.canvas.getContext('2d');
 
@@ -12,27 +11,31 @@ class Game {
         
         // TODO: move DOM drawing to outside of game constructor
         $('body').append(this.canvas);
+    }
 
-        var testImage = new ImageEntity({
-            filepath: "img.jpg",
-            game: this
-        })
+    startGame() {
+        logic.init();
+        window.requestAnimationFrame(this.gameLoop);
+    }
 
-        var testText = new TextEntity({
-            text: "this is the test text",
-            game: this
-        })
+    gameLoop(timeStamp) {
+        logic.eachTick(window.game.entities);
+        window.game.render();
+        window.requestAnimationFrame(window.game.gameLoop);
+    }
 
-        this.entities.push(testImage);
-        this.entities.push(testText);
-        
+    render() {
+        canvasUtils.clearCanvas();
+        this.entities.forEach((entity) => {
+            entity.update();
+        });
     }
 
     /**
      * Adds entity to the game's entity collection
      * @param {Entity} entity 
      */
-    createEntity(entity) {
+    pushEntity(entity) {
         this.entities.push(entity);
     }
 
@@ -57,4 +60,6 @@ window.gameWidth = 1920;
 window.gameHeight = 1080;
 window.game = game;
 
-module.exports = game;
+game.startGame();
+
+module.exports = Game;

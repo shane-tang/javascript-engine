@@ -9,22 +9,16 @@ class TextEntity extends Entity {
      * @param {Game} game 
      * @param {Number} xPos 
      * @param {Number} yPos 
-     * @param {Number} width 
-     * @param {Number} height 
      * @param {Boolean} visible 
      */
     constructor({
         text = 'Default text',
         font = '32px Arial',
-        game,
         xPos,
         yPos,
-        width,
-        height,
         visible
     }) {
         super({
-            game: game,
             xPos: xPos,
             yPos: yPos,
             visible: visible

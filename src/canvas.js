@@ -1,6 +1,4 @@
 const canvasId = 'game';
-const ImageEntity = require('./entities/image');
-const TextEntity = require('./entities/text');
 
 function generateCanvas(gameWidth, gameHeight) {
     var canvas = document.createElement('canvas');
@@ -16,6 +14,11 @@ function generateCanvas(gameWidth, gameHeight) {
     context.strokeRect(0, 0, gameWidth, gameHeight);
 
     return canvas;
+}
+
+function clearCanvas() {
+    var context = getContext();
+    context.clearRect(0, 0, context.canvas.width, context.canvas.height);
 }
 
 /**
@@ -55,5 +58,6 @@ function getContext() {
 
 module.exports = {
     generateCanvas: generateCanvas,
-    drawEntity: drawEntity
+    drawEntity: drawEntity,
+    clearCanvas: clearCanvas
 }

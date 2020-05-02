@@ -14,15 +14,13 @@ class ImageEntity extends Entity {
      */
     constructor({
         filepath,
-        game,
-        xPos,
-        yPos,
         width,
         height,
+        xPos,
+        yPos,
         visible
     }) {
         super({
-            game: game,
             xPos: xPos,
             yPos: yPos,
             visible: visible
