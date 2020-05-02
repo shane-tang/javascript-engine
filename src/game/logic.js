@@ -1,24 +1,18 @@
-const ImageEntity = require('../entities/image');
-const TextEntity = require('../entities/text');
+const guys = require('../game');
+var GAME;
 
 function init() {
-    const GAME = window.game; // TODO: fix
+    GAME = window.game;
 
-    var testImage = new ImageEntity({
-        id: "test image",
-        filepath: "img.jpg",
-    });
+    guys.patrick.init();
+    guys.welcome.init();
 
-    var welcomeText = new TextEntity({
-        text: "welcome 2 my game",
-        font: "69px Comic Sans MS",
-        xPos: game.width / 2,
-        yPos: game.height / 2
-    })
+    onStart();
+}
 
-    GAME.pushEntity(testImage);
-    GAME.pushEntity(welcomeText);
-
+function onStart() {
+    guys.patrick.onStart();
+    guys.welcome.onStart();
 }
 
 /**
@@ -26,12 +20,12 @@ function init() {
  * @param {Entity[]} entities 
  */
 function eachTick(entities) {
-    entities.forEach((entity) => {
-        entity.xPos++;
-    })
+    guys.patrick.eachTick(entities);
+    guys.welcome.eachTick(entities);
 }
 
 module.exports = {
     init: init,
+    onStart: onStart,
     eachTick: eachTick
 };

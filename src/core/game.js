@@ -29,7 +29,7 @@ class Game {
 
     render() {
         canvasUtils.clearCanvas();
-        this.entities.forEach((entity) => {
+        this.entities.forEach(entity => {
             entity.update();
         });
     }
@@ -51,8 +51,16 @@ class Game {
     }
 
     finishedLoading() {
-        this.entities.forEach((entity) => {
+        this.entities.forEach(entity => {
             canvasUtils.drawEntity(entity);
+        });
+    }
+
+    onKeyPress(key, callback) {
+        document.addEventListener('keypress', event => {
+            if (event.key.toLowerCase() === key.toLowerCase()) {
+                callback();
+            }
         });
     }
 }
