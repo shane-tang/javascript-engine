@@ -1,5 +1,5 @@
-const ImageEntity = require('./entities/image');
-const TextEntity = require('./entities/text');
+const ImageEntity = require('../entities/image');
+const TextEntity = require('../entities/text');
 
 function init() {
     const GAME = window.game; // TODO: fix

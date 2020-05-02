@@ -1,4 +1,4 @@
-const canvasUtils = require('../canvas');
+const canvasUtils = require('../core/canvas');
 
 class Entity {
     /**

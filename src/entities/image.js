@@ -1,5 +1,5 @@
 const Entity = require('./entity');
-const canvasUtils = require('../canvas');
+const canvasUtils = require('../core/canvas');
 
 class ImageEntity extends Entity {
     /**
