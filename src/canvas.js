@@ -1,4 +1,6 @@
-const canvasId = "game";
+const canvasId = 'game';
+const ImageEntity = require('./entities/image');
+const TextEntity = require('./entities/text');
 
 function generateCanvas(gameWidth, gameHeight) {
     var canvas = document.createElement('canvas');
@@ -16,14 +18,42 @@ function generateCanvas(gameWidth, gameHeight) {
     return canvas;
 }
 
-function drawImage(image, xPos, yPos) {
-    var context = $('#' + canvasId)[0].getContext('2d');
+/**
+ * Draw an Entity on the canvas
+ * @param {Entity} entity 
+ */
+function drawEntity(entity) {
+    switch (entity.constructor.name) {
+        case 'ImageEntity':
+            drawImage(entity);
+            break;
+        case 'TextEntity':
+            drawText(entity);
+            break;
+    }
+}
 
-    context.drawImage(image, xPos, yPos);
+function drawImage(entity) {
+    if (entity.visible) {
+        getContext().drawImage(entity.drawing, entity.xPos, entity.yPos, entity.width, entity.height);
+    }
+}
 
+function drawText(entity) {
+    if (entity.visible) {
+
+        var context = getContext();
+
+        context.font = entity.font;
+        context.fillText(entity.text, entity.xPos, entity.yPos);
+    }
+}
+
+function getContext() {
+    return $('#' + canvasId)[0].getContext('2d');
 }
 
 module.exports = {
     generateCanvas: generateCanvas,
-    drawImage: drawImage
+    drawEntity: drawEntity
 }

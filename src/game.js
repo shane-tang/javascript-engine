@@ -1,4 +1,5 @@
 const ImageEntity = require('./entities/image');
+const TextEntity = require('./entities/text');
 const canvasUtils = require('./canvas');
 
 class Game {
@@ -12,15 +13,19 @@ class Game {
         // TODO: move DOM drawing to outside of game constructor
         $('body').append(this.canvas);
 
-        // this.context.font = '32px Arial';
-        // this.context.fillText(window.devicePixelRatio, 5, 500);
-
-        var test = new ImageEntity({
+        var testImage = new ImageEntity({
             filepath: "img.jpg",
             game: this
         })
 
-        this.createEntity(test);
+        var testText = new TextEntity({
+            text: "this is the test text",
+            game: this
+        })
+
+        this.entities.push(testImage);
+        this.entities.push(testText);
+        
     }
 
     /**
@@ -41,7 +46,7 @@ class Game {
 
     finishedLoading() {
         this.entities.forEach((entity) => {
-            canvasUtils.drawImage(entity.drawing, entity.xPos, entity.yPos);
+            canvasUtils.drawEntity(entity);
         });
     }
 }

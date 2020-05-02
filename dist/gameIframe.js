@@ -4,7 +4,6 @@ gameIframe.src = "game.html";
 gameIframe.scrolling = 'no';
 gameIframe.frameBorder = '0';
 
-
 gameIframe.onload = function() {
     let gameWidth = gameIframe.contentWindow.gameWidth;
     let gameHeight = gameIframe.contentWindow.gameHeight;

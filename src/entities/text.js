@@ -1,10 +1,11 @@
 const Entity = require('./entity');
 const canvasUtils = require('../canvas');
 
-class ImageEntity extends Entity {
+class TextEntity extends Entity {
     /**
      * TODO: i think this can be better
-     * @param {String} filepath 
+     * @param {String} text 
+     * @param {String} font
      * @param {Game} game 
      * @param {Number} xPos 
      * @param {Number} yPos 
@@ -13,7 +14,8 @@ class ImageEntity extends Entity {
      * @param {Boolean} visible 
      */
     constructor({
-        filepath,
+        text = 'Default text',
+        font = '32px Arial',
         game,
         xPos,
         yPos,
@@ -27,18 +29,13 @@ class ImageEntity extends Entity {
             yPos: yPos,
             visible: visible
         });
-        
-        this.loaded = false;
-        this.drawing = new Image();
-        this.drawing.src = filepath;
-        this.drawing.onload = () => {
-            this.loaded = true;
-            this.width = width ? width : this.drawing.width;
-            this.height = height ? height : this.drawing.height;
-            this.game.entityLoaded();
-        }
-    }
 
+        this.text = text;
+        this.font = font;
+
+        this.game.entityLoaded();
+
+    }
 }
 
-module.exports = ImageEntity;
+module.exports = TextEntity;

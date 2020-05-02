@@ -1,6 +1,6 @@
 class Entity {
     /**
-     * TODO: should be abstract
+     * TODO: should be abstract, fix params
      * @param {Game} game 
      * @param {Number} xPos 
      * @param {Number} yPos 
