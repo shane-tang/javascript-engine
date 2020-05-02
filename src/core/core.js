@@ -1,5 +1,5 @@
 const canvasUtils = require('./canvas');
-const logic = require('./logic');
+const logic = require('../game/logic');
 
 class Game {
     constructor(width, height, showFps) {
