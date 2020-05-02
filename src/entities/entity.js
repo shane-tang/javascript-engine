@@ -1,6 +1,7 @@
+const Events = require('../core/events');
 const canvasUtils = require('../core/canvas');
 
-class Entity {
+class Entity extends Events {
     /**
      * TODO: should be abstract, fix params
      * @param {String} id
@@ -14,6 +15,8 @@ class Entity {
         yPos = 0,
         visible = true
     }) {
+        super();
+        
         this.game = window.game;
         this.xPos = xPos;
         this.yPos = yPos;
@@ -44,6 +47,14 @@ class Entity {
             this.height === that.height &&
             this.visible === that.visible
         );
+    }
+
+    onKeyPress(key, callback) {
+        document.addEventListener('keypress', event => {
+            if (event.key.toLowerCase() === key.toLowerCase()) {
+                callback();
+            }
+        });
     }
 }
 

@@ -1,8 +1,11 @@
+const Events = require('./events');
 const canvasUtils = require('./canvas');
 const logic = require('../game/logic');
 
-class Game {
+class Game extends Events {
     constructor(width, height, showFps) {
+        super();
+        
         this.width = width;
         this.height = height;
 
@@ -56,13 +59,7 @@ class Game {
         });
     }
 
-    onKeyPress(key, callback) {
-        document.addEventListener('keypress', event => {
-            if (event.key.toLowerCase() === key.toLowerCase()) {
-                callback();
-            }
-        });
-    }
+
 }
 
 var game = new Game(1920, 1080);

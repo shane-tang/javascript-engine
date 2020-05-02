@@ -13,8 +13,12 @@ function init() {
 
     GAME.pushEntity(patrick);
 
-    GAME.onKeyPress('s', () => {
+    patrick.onKeyPress('s', () => {
         patrick.yPos += 5;
+    });
+
+    patrick.onClick(() => {
+        patrick.yPos -= 5;
     });
 }
 
