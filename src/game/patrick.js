@@ -17,7 +17,7 @@ function init() {
         patrick.yPos += 5;
     });
 
-    patrick.onClick(() => {
+    patrick.onKeyPress('w', () => {
         patrick.yPos -= 5;
     });
 }
