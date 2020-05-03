@@ -1,3 +1,4 @@
+const imagePath = require('./patrick.jpg').default;
 const ImageEntity = require('../entities/image');
 var GAME;
 var patrick;
@@ -8,7 +9,7 @@ function init() {
 
     patrick = new ImageEntity({
         id: "test image",
-        filepath: "img.jpg",
+        filepath: imagePath
     });
 
     GAME.pushEntity(patrick);
