@@ -1,3 +1,5 @@
 node_modules/
 dist/
 !dist/game.html
+!dist/editor.html
+!dist/editor.js
