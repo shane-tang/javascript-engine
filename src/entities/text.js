@@ -1,5 +1,4 @@
 const Entity = require('./entity');
-const canvasUtils = require('../core/canvas');
 
 class TextEntity extends Entity {
     /**
