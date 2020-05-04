@@ -1,5 +1,7 @@
 node_modules/
-dist/
+!dist/
 !dist/game.html
 !dist/editor.html
 !dist/editor.js
+dist/a7d8df611a5f75e0ed2e4c731eca5224.jpg
+dist/bundle.js

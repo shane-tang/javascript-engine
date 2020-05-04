@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+}
+
+.CodeMirror {
+    height: 100vh;
+}
+
+#editor-tools {
+    background: #1b1e2b;
+}
+
+.grid-container {
+    margin: 0;
+    display: grid;
+    grid-template-rows: 40px;
+}
